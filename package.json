@@ -1,0 +1,77 @@
+{
+  "name": "react-redux-async-utils",
+  "version": "1.0.1",
+  "description": "React Redux async utils",
+  "main": "src/index.js",
+  "files": [
+    "index.js",
+    "react.js",
+    "redux-saga.js",
+    "redux.js",
+    "LICENSE",
+    "README.md",
+    "src",
+    "es5"
+  ],
+  "scripts": {
+    "build": "NODE_ENV=production babel src --out-dir es5",
+    "build:add": "npm run build && git add es5",
+    "build:test": "react-scripts build",
+    "clean": "rm -rf build es5 screenshot",
+    "format": "prettier --write \"src/**/*.{js,css,json}\"",
+    "precommit": "lint-staged && npm run test:unit && npm run build:add",
+    "start": "react-scripts start",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "CI=true npm run test:unit:watch",
+    "test:unit:watch": "react-scripts test --env=jsdom",
+    "test:e2e": "CI=true react-scripts test --testMatch **/*.e2e.js",
+    "test:e2e:build": "npm run build:test && npm run test:e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sebastiendavid/react-redux-async-utils.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "async",
+    "inject"
+  ],
+  "author": "Sébastien David",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebastiendavid/react-redux-async-utils/issues"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.26.0",
+    "babel-plugin-transform-runtime": "~6.23.0",
+    "connect": "~3.6.5",
+    "enzyme": "~3.3.0",
+    "enzyme-adapter-react-16": "~1.1.1",
+    "eslint-config-prettier": "~2.9.0",
+    "husky": "~0.14.3",
+    "lint-staged": "~6.0.0",
+    "prettier": "~1.10.2",
+    "prop-types": "~15.6.0",
+    "puppeteer": "~0.13.0",
+    "react": "~16.2.0",
+    "react-dom": "~16.2.0",
+    "react-redux": "~5.0.6",
+    "react-scripts": "~1.0.17",
+    "redux": "~3.7.2",
+    "redux-saga": "~0.16.0",
+    "regenerator-runtime": "~0.11.1",
+    "serve-static": "~1.13.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --write",
+      "git add"
+    ],
+    "*.css": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

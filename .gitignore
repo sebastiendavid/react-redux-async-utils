@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+.settings
+.project
+*.iml
+npm-debug.log
+node_modules
+build
+coverage
+screenshot
